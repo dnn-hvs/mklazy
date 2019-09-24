@@ -8,9 +8,10 @@
         </h2>
       </div>
       <form
-        action="http://10.5.0.93:8080/submit"
+        id="uploadForm"
         method="post"
         enctype="multipart/form-data"
+        action="http://localhost:8080/submit"
       >
         <input
           class="mdl-textfield__input"
@@ -29,8 +30,9 @@
             id="roll"
             name="roll"
             onkeyup="validate()"
+            placeholder="Roll No*"
           />
-          <label class="mdl-textfield__label" for="roll">Roll No*</label>
+          <!-- <label class="mdl-textfield__label" for="roll">Roll No*</label> -->
         </div>
         <div
           class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
@@ -42,8 +44,9 @@
             pattern="-?[0-9]*(\.[0-9]+)?"
             id="set"
             onkeyup="validate()"
+            placeholder="Set Number*"
           />
-          <label class="mdl-textfield__label" for="set">Set Number*</label>
+          <!-- <label class="mdl-textfield__label" for="set">Set Number*</label> -->
           <span class="mdl-textfield__error">Input is not a number!</span>
         </div>
         <div
@@ -70,7 +73,7 @@
             />
           </div>
         </div>
-        <span style="color: black;display: block;padding-bottom: 2%;"
+        <span style="color: red;display: block;padding-bottom: 2%;"
           >Only ZIP files allowed.</span
         >
         <div class="mdl-card__actions mdl-card--border">
@@ -87,7 +90,7 @@
             type="reset"
             value="Reset"
             style="margin-left:5%"
-            onClick="window.location.reload()"
+            onclick="window.location.reload()"
           />
         </div>
       </form>

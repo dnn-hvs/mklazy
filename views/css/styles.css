@@ -4,12 +4,16 @@
 }
 .question-card-square.mdl-card {
   width: 100%;
-  height: 400px;
+  height: 410px;
 }
 .demo-card-square > .mdl-card__title,
 .question-card-square > .mdl-card__title {
   color: #fff;
   background: black;
+}
+
+.video-card {
+  border-radius: 20px !important;
 }
 .video-card.mdl-cell {
   height: 400px;
@@ -18,7 +22,17 @@
   width: 600px;
   height: 400px;
 }
-
+.center {
+  margin: 0 auto !important;
+  text-align: center;
+}
+.code-type {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #f2f2f2;
+  width: 70%;
+  padding: 5%;
+  border-radius: 20px;
+}
 .mdl-button--file > input {
   cursor: pointer;
   height: 100%;
@@ -41,6 +55,9 @@
 .top-bottom-margin {
   margin: 5% 0 !important;
   /* margin-top: 5% !important; */
+}
+.all-margin {
+  margin: 5% !important;
 }
 .question-card-height {
   height: 60%;

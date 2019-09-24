@@ -2,15 +2,17 @@
   <head>
     <title>Lab Exam</title>
     <meta charset="utf-8" />
-    <!-- <link rel="stylesheet" href="./css/material.icons.css" />
-     -->
-    <link rel="stylesheet" href="./css/styles.css" />
-    <!-- <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com"
     /> -->
-    <link href="material-icons.css" rel="stylesheet" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com"
+    />
 
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link href="material-icons.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/material.min.css" />
   </head>
@@ -21,16 +23,16 @@
       <header class="mdl-layout__header mdl-layout__header--scroll">
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span class="mdl-layout-title">Title</span>
+          <span class="mdl-layout-title">Exam</span>
           <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation -->
           <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="#question"
+            <a class="mdl-navigation__link" href="#question" onclick="hi();"
               >Question
               <i class="material-icons">format_list_bulleted</i>
             </a>
-            <a class="mdl-navigation__link" href="#upload"
+            <a class="mdl-navigation__link" href="#upload" onclick="validate();"
               >Upload
               <i class="material-icons">cloud_upload</i>
             </a>
@@ -44,10 +46,10 @@
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Title</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="#question">
+          <a class="mdl-navigation__link" href="#question" onclick="hi()">
             <i class="material-icons">format_list_bulleted</i>&emsp;Question
           </a>
-          <a class="mdl-navigation__link" href="#upload">
+          <a class="mdl-navigation__link" href="#upload" onclick="validate();">
             <i class="material-icons">cloud_upload</i>&emsp;Upload
           </a>
           <a class="mdl-navigation__link" href="#help">
@@ -56,7 +58,16 @@
         </nav>
       </div>
       <main class="mdl-layout__content">
-        <div class="page-content" id="app"></div>
+        <div class="page-content " id="app">
+          <div class="center-align">
+            <a
+              class="centeritems mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+              href="#upload"
+            >
+              Start Exam
+            </a>
+          </div>
+        </div>
       </main>
       <footer style="background-color: black;color: blanchedalmond">
         <div class="centeritems mdl-grid ">
@@ -65,7 +76,7 @@
             <div class="mdl-logo">
               <img src="./images/dumb_martians.png" height="50" width="50" />
             </div>
-            With Love!! <br />
+            Developed with &#10084; by<br />
             The Two Dumb Martians
           </div>
           <div class="mdl-layout-spacer"></div>
@@ -73,22 +84,53 @@
       </footer>
     </div>
 
-    <!-- <img src="images/uni_logo.png" height="200px" width="200px" /> -->
-
-    <!-- Accent-colored raised button with ripple -->
-
     <script defer src="./js/material.min.js"></script>
     <script src="./js/route.js"></script>
     <script src="./js/router.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/marked.min.js"></script>
     <script src="./js/upload_file.js"></script>
-    <script>
-      function hi() {
-        document.getElementById("content").innerHTML = marked(
-          "# Marked in the browser\n\nRendered by **marked**."
-        );
+    <script src="config.json" type="application/json"></script>
+    <!-- <script>
+      function callback(mutationList, observer) {
+        mutationList.forEach(mutation => {
+          switch (mutation.type) {
+            case "childList":
+              hi();
+              break;
+            case "attributes":
+              /* An attribute value changed on the element in
+                 mutation.target; the attribute name is in
+                 mutation.attributeName and its previous value is in
+                 mutation.oldValue */
+              break;
+          }
+        });
       }
-    </script>
+
+      var targetNode = document.getElementById("app");
+      var observerOptions = {
+        childList: true,
+        attributes: true,
+        subtree: true //Omit or set to false to observe only changes to the parent node.
+      };
+
+      var observer = new MutationObserver(callback);
+      observer.observe(targetNode, observerOptions);
+
+      var observer = new MutationObserver(function(mutationRecords) {
+        console.log("change detected");
+      });
+      // while (true) {
+      //   if (document.getElementById("content")) break;
+      // }
+      // function hi() {
+      //   setTimeout(function() {
+      //     document.getElementById("content").innerHTML = marked(
+      //       "# Marked in the browser\n\nRendered by **marked**."
+      //     );
+      //   }, 20);
+      // }
+    </script> -->
   </body>
 </html>

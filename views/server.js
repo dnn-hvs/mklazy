@@ -15,7 +15,7 @@ app.get('/', (request, response) => {
   response.sendFile(`${__dirname}/index.html`);
 });
 app.get('/thankyou', (request, response) => {
-  response.sendFile(`${__dirname}/material/html/thankyou.html`);
+  response.sendFile(`${__dirname}/html/thankyou.html`);
 });
 
 // listen for requests :)
