@@ -4,7 +4,8 @@
   "description": "An application to collect all the submissions after the lab exam is done",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon file-server.js --exec babel-node --presets babel-preset-env"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,12 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0"
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.18.10"
   },
   "dependencies": {
     "dotenv": "^8.1.0",
