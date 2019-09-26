@@ -53,12 +53,20 @@
 }
 
 .top-bottom-margin {
-  margin: 5% 0 !important;
+  margin: 5em 0 !important;
   /* margin-top: 5% !important; */
 }
 .all-margin {
-  margin: 5% !important;
+  margin: 5em !important;
+}
+
+.bottom-margin {
+  margin-bottom: 15px !important;
 }
 .question-card-height {
-  height: 60%;
+  height: 37em;
+}
+.mdl-layout__content {
+  padding: 24px;
+  flex: none;
 }

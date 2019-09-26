@@ -1,13 +1,26 @@
 /* eslint-disable require-jsdoc */
 'use strict';
+var config_JSON;
+if (!config_JSON) {
+  loadJSON(function (response) {
+    config_JSON = JSON.parse(response);
+  });
+}
+
 
 function validate() {
-  if (document.getElementById('roll').value !== '' && document.getElementById('set').value !== '' && document.getElementById('uploadFile').value !== '') {
-    console.log(document.getElementById('roll').value, document.getElementById('set').value, document.getElementById('uploadFile').value);
+
+
+
+  if (document.getElementById('roll') && document.getElementById('roll').value !== ''
+    // && document.getElementById('set') && document.getElementById('set').value !== ''
+    && document.getElementById('uploadFile') && document.getElementById('uploadFile').value !== '') {
+
     document.getElementById('uploadDetails').disabled = false;
     return;
+  } else if (document.getElementById('uploadDetails')) {
+    document.getElementById('uploadDetails').disabled = true;
   }
-  document.getElementById('uploadDetails').disabled = true;
 }
 function validateFile() {
   const filename = document.getElementById('uploadBtn').files[0].name;
@@ -15,30 +28,19 @@ function validateFile() {
   if (extension === 'zip') { document.getElementById('uploadFile').value = filename; }
   validate();
 };
-console.log("loaded");
 
 function submitFile() {
+  // submit_form.action = "http://localhost:8080/submit";
+  console.log(config_JSON);
   var submit_form = document.getElementById("uploadForm");
-  submit_form.action = "http://localhost:8080/submit";
+  submit_form.action = "http://" + config_JSON.serverHostname + ":" + config_JSON.serverPort + "/submit";
 
   // loadJSON(function (response) {
-  //   // Parse JSON string into object
-  //   var actual_JSON = JSON.parse(response);
-  //   console.log(actual_JSON)
+  //   var config = JSON.parse(response);
+  //   console.log("http://" + config.serverHostname + ":" + config.serverPort + "/submit");
+  //   var submit_form = document.getElementById("uploadForm");
   //   submit_form.action = "http://localhost:8080/submit";
-
+  //   // submit_form.action = "http://" + config.serverHostname + ":" + config.serverPort + "/submit";
   // });
 }
 
-function loadJSON(callback) {
-  var xobj = new XMLHttpRequest();
-  xobj.overrideMimeType("application/json");
-  xobj.open('GET', '../config.json', true); // Replace 'my_data' with the path to your file
-  xobj.onreadystatechange = function () {
-    if (xobj.readyState == 4 && xobj.status == "200") {
-      // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-      callback(xobj.responseText);
-    }
-  };
-  xobj.send(null);
-}

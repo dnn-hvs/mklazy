@@ -4,21 +4,16 @@
     <div class="demo-card-square mdl-card mdl-shadow--16dp">
       <div class="mdl-card__title">
         <h2 class="mdl-card__title-text mdl-typography--text-center">
-          DSP Lab Minor 1
+          Algo Lab Minor 1
         </h2>
       </div>
-      <form
-        id="uploadForm"
-        method="post"
-        enctype="multipart/form-data"
-        action="http://localhost:8080/submit"
-      >
+      <form id="uploadForm" method="post" enctype="multipart/form-data">
         <input
           class="mdl-textfield__input"
           type="hidden"
           name="exam"
           id="exam"
-          value="dsp"
+          value="Algo"
           readonly
         />
         <div
@@ -34,7 +29,7 @@
           />
           <!-- <label class="mdl-textfield__label" for="roll">Roll No*</label> -->
         </div>
-        <div
+        <!-- <div
           class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
         >
           <input
@@ -46,9 +41,9 @@
             onkeyup="validate()"
             placeholder="Set Number*"
           />
-          <!-- <label class="mdl-textfield__label" for="set">Set Number*</label> -->
+          <label class="mdl-textfield__label" for="set">Set Number*</label>
           <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
+        </div> -->
         <div
           class="mdl-textfield mdl-js-textfield mdl-textfield--file mdl-textfield--floating-label"
         >
@@ -79,8 +74,8 @@
         <div class="mdl-card__actions mdl-card--border">
           <button
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
-            type="submit"
             id="uploadDetails"
+            onclick="submitFile()"
             disabled
           >
             Upload Details

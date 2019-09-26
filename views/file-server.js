@@ -31,7 +31,7 @@ function getTA(_roll, exam) {
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     console.log(req.body);
-    const dest = `./uploads/${req.body.exam}//${req.body.set}/${req.body.roll}`;
+    const dest = `./uploads/${req.body.exam}/${req.body.roll}`;
     if (filePaths[req.body.roll]) {
       fs.removeSync(filePaths[req.body.roll]);
     }
